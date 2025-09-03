@@ -1,0 +1,10 @@
+class Solution {
+public:
+    bool isFascinating(int n) {
+        int a = 2 * n;
+        int b = 3 * n;
+        string result = to_string(n) + to_string(a) + to_string(b);
+        sort(result.begin(), result.end());
+        return result == "123456789";
+    }
+};
