@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        array<bitset<9>, 9> row{}, col{}, box{};
+        for(int r = 0; r < 9; r++){
+            for (int c = 0; c < 9; ++c) {
+                char ch = board[r][c];
+                if (ch == '.') continue;
+                if (ch < '1' || ch > '9') return false;
+                int d = ch - '1';
+                int b = (r/3)*3 + (c/3);
+                if (row[r][d] || col[c][d] || box[b][d]) return false;
+                row[r].set(d);
+                col[c].set(d);
+                box[b].set(d);
+            }
+        }
+        return true;
+        }
+    
+};
