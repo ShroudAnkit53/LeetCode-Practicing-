@@ -1,0 +1,18 @@
+class Solution {
+private:
+    int divisible(int a, int b){
+        if(a%b != 0) return -1;
+        else return b;
+    }
+public:
+    int sumOfTheDigitsOfHarshadNumber(int x) {
+        int duplicate = x;
+        int sum = 0;
+        while(duplicate != 0){
+            int a = duplicate % 10;
+            sum += a;
+            duplicate /= 10;
+        }
+        return divisible(x, sum);
+    }
+};
