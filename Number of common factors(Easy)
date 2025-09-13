@@ -1,0 +1,16 @@
+class Solution {
+private:
+    int GCD(int a, int b){
+        if(b == 0) return a;
+        return GCD(b, a%b);
+    }
+public:
+    int commonFactors(int a, int b) {
+        int count = 0;
+        int common = GCD(a,b);
+        for(int i = 1; i <= common; i++){
+            if(common % i == 0) count++;
+        }
+        return count;
+    }
+};
