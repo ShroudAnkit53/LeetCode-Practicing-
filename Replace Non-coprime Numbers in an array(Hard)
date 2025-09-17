@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> replaceNonCoprimes(vector<int>& nums) {
+        vector<long long> stack;
+
+        for(int num : nums){
+            stack.push_back(num);
+
+            while(stack.size() > 1){
+                long long a = stack.back();
+                long long b = stack[stack.size()-2];
+                long long g = gcd(a,b);
+
+                if(g > 1){
+                    stack.pop_back();
+                    stack.pop_back();
+                    long long lcm_val = (a/g)*b;
+                    stack.push_back(lcm_val);
+                }else{
+                    break;
+                }
+            }
+        }
+
+        vector<int> result(stack.begin(), stack.end());
+        return result;
+    }
+};
