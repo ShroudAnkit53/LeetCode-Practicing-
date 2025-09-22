@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        unordered_map<int,int> freq;
+
+        //count frequency   
+        for(int num: nums){
+            freq[num]++;
+        }
+
+        //find max frequency
+        int maxFreq = 0;
+        for(auto &p: freq){
+            maxFreq = max(maxFreq,p.second);
+        }
+
+        //sum
+        int sum = 0;
+        for(auto &p: freq){
+            if(p.second == maxFreq){
+                sum += p.second;
+            }
+        }
+        return sum;
+    }
+};
