@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> decimalRepresentation(int n) {
+        vector<int> components;
+        for(long long power = 1; n > 0; power *= 10){
+            int digit = n % 10;
+            if(digit > 0){
+                components.push_back(digit * power);
+            }
+            n /= 10;
+        }
+        sort(components.rbegin(), components.rend());
+        return components;
+    }
+};
