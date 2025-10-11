@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int longestSubsequence(vector<int>& nums) {
+        int xor_all = 0;
+        bool all_zero = true;
+        for(int num : nums){
+            xor_all ^= num;
+            if(num != 0) all_zero = false;
+        }
+            
+
+        int n = nums.size();
+        
+        if(all_zero) return 0;
+
+        if(xor_all != 0) return n;
+        
+        return n-1;
+    }
+};
