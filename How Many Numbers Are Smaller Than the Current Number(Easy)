@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int> counts(101,0);
+        int length = nums.size();
+        int sum = 0;
+        vector<int> answer;
+
+        for(int i = 0; i < length; i++){
+            counts[nums[i]]++;
+        }
+
+        for(int i = 0; i < length; i++){
+            sum = 0;
+            for(int j = 0; j < nums[i]; j++){
+                sum+=counts[j];
+            }
+            answer.push_back(sum);
+        }
+        return answer;
+    }
+};
